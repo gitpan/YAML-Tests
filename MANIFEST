@@ -17,11 +17,9 @@ META.yml
 README
 t/data/basic.t
 t/test.t
-t/TestYAML.pm
+t/TestYAMLTests.pm
 yaml-tests/alias.t
 yaml-tests/boolean.t
-yaml-tests/bug-pvf.t
-yaml-tests/bug-stack.t
 yaml-tests/dump.t
 yaml-tests/empty.t
 yaml-tests/load.t

@@ -1,7 +1,7 @@
 package YAML::Tests;
 use 5.005003;
 use strict;
-$YAML::Tests::VERSION = '0.01';
+$YAML::Tests::VERSION = '0.02';
 
 sub env_error_msg {
     my ($class, $base, $base_env_name) = @_;

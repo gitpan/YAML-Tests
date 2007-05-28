@@ -2,9 +2,9 @@
 
 use strict;
 use lib 'lib';
-use YAML::Tests 0.01;
+use YAML::Tests 0.02;
 
-$main::VERSION = '0.01';
+$main::VERSION = '0.02';
 
 {
     my $base_env_name = 'PERL_YAML_TESTS_BASE';
@@ -35,6 +35,7 @@ $main::VERSION = '0.01';
       unless 
         $module->can('Load') and
         $module->can('Dump');
+    $ENV{PERL_YAML_TESTS_MODULE} = $module;
 
     chdir($base) or die "Can't chdir to '$base'";
     my $command = "prove @$options yaml-tests";

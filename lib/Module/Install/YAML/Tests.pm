@@ -35,7 +35,7 @@ sub use_yaml_tests {
     print "TODO - Copy YAML::Tests test files to here\n";
 
     for (
-        "$base/t/TestYAML.pm",
+        "$base/t/TestYAMLTests.pm",
         "$base/t/data",
         glob("$base/yaml-tests/*"),
     ) {

@@ -1,4 +1,10 @@
 ---
-version: 0.10
+version: 0.02
+date:    Mon May 28 02:17:58 PDT 2007
+changes:
+- Make tests use the specified module instead of just YAML::LibYAML.
+- Remove LibYAML specific tests.
+---
+version: 0.01
 date:    Sun May 27 14:18:51 PDT 2007
 changes: Initial version
