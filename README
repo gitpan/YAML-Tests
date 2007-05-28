@@ -1,0 +1,29 @@
+NAME
+    YAML::Tests - Common Test Suite for Perl YAML Implementations
+
+SYNOPSIS
+        > yt YAML::Foo   # Run all YAML Tests against YAML::Foo implementation
+
+DESCRIPTION
+    YAML::Tests provides a common test suite against which to test Perl YAML
+    modules. It also provides a Module::Install component to make it simple
+    for YAML module authors to include the tests in their distributions.
+
+    This module is primarily intended for YAML implementation authors
+    (currently ADAM, AUDREY and INGY) and also for anyone who is interested
+    in comparing the capabilities and quality of the various YAML modules.
+
+    This module installs a command line tool called "yt" which can be used
+    to run the tests against various implementations.
+
+AUTHOR
+    Ingy döt Net <ingy@cpan.org>
+
+COPYRIGHT
+    Copyright (c) 2007. Ingy döt Net. All rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+    See http://www.perl.com/perl/misc/Artistic.html
+

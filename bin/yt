@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+
+use strict;
+use lib 'lib';
+use YAML::Tests 0.01;
+
+$main::VERSION = '0.01';
+
+{
+    my $base_env_name = 'PERL_YAML_TESTS_BASE';
+    my $base = $ENV{$base_env_name} || '.';
+
+    die YAML::Tests->env_error_msg($base, $base_env_name)
+      unless
+        -d "$base/yaml-tests" and
+        -d "$base/t" and
+        -f "$base/lib/YAML/Tests.pm" and
+        -f "$base/Makefile.PL";
+
+    my ($options, $args) = ([], []);
+    for (@ARGV) {
+        push @{(
+            /^-/ ? $options : $args
+        )}, $_;
+    }
+
+    die YAML::Tests->usage_msg($base, $base_env_name)
+      unless
+        @$args == 1 and
+        $args->[0] =~ /^[\w\:]+$/;
+    my $module = shift @$args;
+    eval "require $module; 1"
+      or die $@;
+    die "Error: $module does not support the YAML Dump/Load API\n"
+      unless 
+        $module->can('Load') and
+        $module->can('Dump');
+
+    chdir($base) or die "Can't chdir to '$base'";
+    my $command = "prove @$options yaml-tests";
+    system($command) == 0
+      or die("Command failed:\n    $command\n");
+}
