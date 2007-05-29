@@ -11,4 +11,4 @@ no_index:
 requires: 
   Test::Harness: 2.42
   perl: 5.005003
-version: 0.03
+version: 0.04

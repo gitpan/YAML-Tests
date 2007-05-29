@@ -23,8 +23,6 @@ sub use_yaml_tests {
       unless -f $config_file;
     eval "use YAML::Tiny 1.08; 1" or die $@;
 
-    eval "use XXX; 1" or die $@;
-
     my ($config) = YAML::Tiny::LoadFile($config_file);
 
     die "'yaml_module' not defined in $config_file"
