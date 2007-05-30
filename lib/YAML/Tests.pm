@@ -1,7 +1,7 @@
 package YAML::Tests;
 use 5.005003;
 use strict;
-$YAML::Tests::VERSION = '0.04';
+$YAML::Tests::VERSION = '0.05';
 
 sub yt_process {
     my $class = shift;
@@ -30,13 +30,12 @@ sub yt_process {
     my $command;
     if (@$commands) {
         $command = $commands->[0];
-        if ($command eq '--list') {
-            $class->handle_list;
+        if ($command =~ /^--(list|benchmark|version)$/) {
+            my $method = "handle_$1";
+            $class->$method($options, $tests);
+            return;
         }
-        elsif ($command eq '--version') {
-            $class->handle_version;
-        }
-        return;
+        die "Unknown command: '$command'";
     }
     
     my $module;
@@ -78,6 +77,12 @@ sub handle_list {
         print "$file\n";
     }
     closedir DIR;
+}
+
+sub handle_benchmark {
+    my $class = shift;
+    require YAML::Tests::Benchmark;
+    YAML::Tests::Benchmark->run(@_);
 }
 
 sub handle_version {
@@ -127,6 +132,7 @@ sub usage_msg {
 Usage:
     yt [prove-options] [-MYAML::Module] [list-of-tests]
     yt --list
+    yt --benchmark
     yt --version
 
 Examples:
@@ -134,6 +140,9 @@ Examples:
     yt -MYAML::LibYAML
     yt -v -MYAML::Tiny dump.t load.t
     PERL_YAML_TESTS_MODULE=YAML::Syck yt
+
+See Also:
+    perldoc yt
 
 ...
 }

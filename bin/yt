@@ -2,9 +2,9 @@
 
 use strict;
 use lib 'lib';
-use YAML::Tests 0.03;
+use YAML::Tests 0.05;
 
-$main::VERSION = '0.03';
+$main::VERSION = '0.05';
 
 YAML::Tests->yt_process(@ARGV);
 
@@ -21,6 +21,11 @@ yt - YAML Tester for Perl Implementations
 
     # List the yt tests
     > yt --list
+
+    # Run benchmarks against the various YAML modules
+    > yt --benchmark
+    > yt --benchmark -r5000   # Run 5000 times
+    > yt --benchmark YAML::Syck YAML::LibYAML   # Compare two modules
 
     # Show the version of yt, YAML::Tests and the YAML modules on your system
     > yt --version

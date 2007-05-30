@@ -1,4 +1,8 @@
 ---
+version: 0.05
+date:    Tue May 29 20:24:51 PDT 2007
+changes: Add --benchmark to yt
+---
 version: 0.04
 date:    Mon May 28 23:41:52 PDT 2007
 changes: Remove "make test" dependency on YAML::Tiny
