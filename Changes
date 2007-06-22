@@ -1,4 +1,8 @@
 ---
+version: 0.06
+date:    Thu Jun 21 18:04:42 PDT 2007
+changes: 0.05 accidentially deleted from CPAN
+---
 version: 0.05
 date:    Tue May 29 20:24:51 PDT 2007
 changes: Add --benchmark to yt

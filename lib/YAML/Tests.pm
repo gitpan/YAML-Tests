@@ -1,7 +1,7 @@
 package YAML::Tests;
 use 5.005003;
 use strict;
-$YAML::Tests::VERSION = '0.05';
+$YAML::Tests::VERSION = '0.06';
 
 sub yt_process {
     my $class = shift;
